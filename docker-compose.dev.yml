@@ -1,0 +1,5 @@
+version: '3.5'
+
+volumes:
+  ingest-data-vol:
+    name: ${INGEST_DATA_VOL_NAME:-ingest-data-vol}
