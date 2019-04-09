@@ -17,13 +17,12 @@ deploy-dev:
     SERVICES_TO_CHECK: etl_${CI_PROJECT_NAME}
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.dev.yml
     PUBLIC_PORT: ${DEV_PUBLIC_PORT}
-    PASSIVE_PUBLIC_PORT: ${DEV_PASSIVE_PUBLIC_PORT}
     PUBLIC_HOST: ${DEV_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
       deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLIC_PORT=${PUBLIC_PORT}
-      PASSIVE_PUBLIC_PORT=${PASSIVE_PUBLIC_PORT} PUBLIC_HOST=${PUBLIC_HOST}
+      PUBLIC_HOST=${PUBLIC_HOST}
   environment:
     name: dev
   only:
@@ -38,13 +37,12 @@ deploy-supporting-branch:
     SERVICES_TO_CHECK: etl_${CI_PROJECT_NAME}
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.dev.yml
     PUBLIC_PORT: ${DEV_PUBLIC_PORT}
-    PASSIVE_PUBLIC_PORT: ${DEV_PASSIVE_PUBLIC_PORT}
     PUBLIC_HOST: ${DEV_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
       deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLIC_PORT=${PUBLIC_PORT}
-      PASSIVE_PUBLIC_PORT=${PASSIVE_PUBLIC_PORT} PUBLIC_HOST=${PUBLIC_HOST}
+      PUBLIC_HOST=${PUBLIC_HOST}
   environment:
     name: dev
   only:
@@ -62,13 +60,12 @@ deploy-pro:
     SERVICES_TO_CHECK: etl_${CI_PROJECT_NAME}
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.prod.yml
     PUBLIC_PORT: ${PRO_PUBLIC_PORT}
-    PASSIVE_PUBLIC_PORT: ${PRO_PASSIVE_PUBLIC_PORT}
     PUBLIC_HOST: ${PRO_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
       deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLIC_PORT=${PUBLIC_PORT}
-      PASSIVE_PUBLIC_PORT=${PASSIVE_PUBLIC_PORT} PUBLIC_HOST=${PUBLIC_HOST}
+      PUBLIC_HOST=${PUBLIC_HOST}
   environment:
     name: pro
   only:

@@ -1,7 +1,7 @@
 version: '3.5'
 
 services:
-  ingest-ftp:
+  ingest-sftp:
     image: stilliard/pure-ftpd:hardened
     networks:
       - ingest-ftp-net
@@ -10,7 +10,7 @@ services:
         published: ${PUBLIC_PORT}
         protocol: tcp
         mode: ingress
-      - target: 30000
+      - target: 30000-30009
         published: ${PASSIVE_PUBLIC_PORT}
         protocol: tcp
         mode: host
