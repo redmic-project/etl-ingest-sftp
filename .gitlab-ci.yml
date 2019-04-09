@@ -16,12 +16,14 @@ deploy-dev:
     STACK: etl
     SERVICES_TO_CHECK: etl_${CI_PROJECT_NAME}
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.dev.yml
-    SFTP_USERS: ${DEV_SFTP_USERS}
     PUBLIC_PORT: ${DEV_PUBLIC_PORT}
+    PASSIVE_PUBLIC_PORT: ${DEV_PASSIVE_PUBLIC_PORT}
+    PUBLIC_HOST: ${PRO_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
-      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} SFTP_USERS=${SFTP_USERS} PUBLIC_PORT=${PUBLIC_PORT}
+      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLIC_PORT=${PUBLIC_PORT}
+      PASSIVE_PUBLIC_PORT=${PASSIVE_PUBLIC_PORT} PUBLIC_HOST=${PUBLIC_HOST}
   environment:
     name: dev
   only:
@@ -35,12 +37,14 @@ deploy-supporting-branch:
     STACK: etl
     SERVICES_TO_CHECK: etl_${CI_PROJECT_NAME}
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.dev.yml
-    SFTP_USERS: ${DEV_SFTP_USERS}
     PUBLIC_PORT: ${DEV_PUBLIC_PORT}
+    PASSIVE_PUBLIC_PORT: ${DEV_PASSIVE_PUBLIC_PORT}
+    PUBLIC_HOST: ${PRO_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
-      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} SFTP_USERS=${SFTP_USERS} PUBLIC_PORT=${PUBLIC_PORT}
+      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLIC_PORT=${PUBLIC_PORT}
+      PASSIVE_PUBLIC_PORT=${PASSIVE_PUBLIC_PORT} PUBLIC_HOST=${PUBLIC_HOST}
   environment:
     name: dev
   only:
@@ -57,12 +61,14 @@ deploy-pro:
     STACK: etl
     SERVICES_TO_CHECK: etl_${CI_PROJECT_NAME}
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.prod.yml
-    SFTP_USERS: ${PRO_SFTP_USERS}
     PUBLIC_PORT: ${PRO_PUBLIC_PORT}
+    PASSIVE_PUBLIC_PORT: ${PRO_PASSIVE_PUBLIC_PORT}
+    PUBLIC_HOST: ${PRO_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
-      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} SFTP_USERS=${SFTP_USERS} PUBLIC_PORT=${PUBLIC_PORT}
+      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLIC_PORT=${PUBLIC_PORT}
+      PASSIVE_PUBLIC_PORT=${PASSIVE_PUBLIC_PORT} PUBLIC_HOST=${PUBLIC_HOST}
   environment:
     name: pro
   only:
