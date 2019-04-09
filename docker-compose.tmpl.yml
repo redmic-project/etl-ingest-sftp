@@ -1,18 +1,25 @@
 version: '3.5'
 
 services:
-  ingest-sftp:
-    image: atmoz/sftp:alpine
-    command: "${SFTP_USERS}"
+  ingest-ftp:
+    image: stilliard/pure-ftpd:hardened
     networks:
       - ingest-ftp-net
     ports:
-      - target: 22
+      - target: 21
         published: ${PUBLIC_PORT}
+        protocol: tcp
         mode: ingress
+      - target: 30000
+        published: ${PASSIVE_PUBLIC_PORT}
+        protocol: tcp
+        mode: host
     volumes:
-        - ingest-data-vol:/home/
-    command: "${SFTP_USERS}"
+      - ingest-data-vol:/data/ftp
+      - ingest-ftp-ssl-vol:/etc/ssl/private
+      - ingest-ftp-passwd-db-vol:/etc/pure-ftpd/passwd
+    environment:
+      PUBLICHOST: ${PUBLICHOST}
     deploy:
       mode: replicated
       replicas: 1

@@ -6,3 +6,15 @@ volumes:
     driver: "cloudstor:aws"
     driver_opts:
       backing: shared
+
+  ingest-ftp-ssl-vol:
+    name: ${INGEST_FTP_SSL_VOL_NAME:-ingest-ftp-ssl-vol}
+    driver: "cloudstor:aws"
+    driver_opts:
+      backing: shared
+
+  ingest-ftp-passwd-db-vol:
+    name: ${INGEST_FTP_PASSWD_DB_VOL_NAME:-ingest-ftp-passwd-db-vol}
+    driver: "cloudstor:aws"
+    driver_opts:
+      backing: shared

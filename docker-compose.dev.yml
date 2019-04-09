@@ -3,3 +3,9 @@ version: '3.5'
 volumes:
   ingest-data-vol:
     name: ${INGEST_DATA_VOL_NAME:-ingest-data-vol}
+
+  ingest-ftp-ssl-vol:
+    name: ${INGEST_FTP_SSL_VOL_NAME:-ingest-ftp-ssl-vol}
+
+  ingest-ftp-passwd-db-vol:
+    name: ${INGEST_FTP_PASSWD_DB_VOL_NAME:-ingest-ftp-passwd-db-vol}
