@@ -18,7 +18,7 @@ deploy-dev:
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.dev.yml
     PUBLIC_PORT: ${DEV_PUBLIC_PORT}
     PASSIVE_PUBLIC_PORT: ${DEV_PASSIVE_PUBLIC_PORT}
-    PUBLIC_HOST: ${PRO_PUBLIC_HOST}
+    PUBLIC_HOST: ${DEV_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
@@ -39,7 +39,7 @@ deploy-supporting-branch:
     COMPOSE_FILE: docker-compose.tmpl.yml:docker-compose.dev.yml
     PUBLIC_PORT: ${DEV_PUBLIC_PORT}
     PASSIVE_PUBLIC_PORT: ${DEV_PASSIVE_PUBLIC_PORT}
-    PUBLIC_HOST: ${PRO_PUBLIC_HOST}
+    PUBLIC_HOST: ${DEV_PUBLIC_HOST}
   script:
     - create-nets.sh ingest-ftp-net
     - >
