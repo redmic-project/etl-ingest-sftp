@@ -13,7 +13,7 @@ services:
       - target: 30000-30009
         published: ${PASSIVE_PUBLIC_PORT}
         protocol: tcp
-        mode: host
+        mode: ingress
     volumes:
       - ingest-data-vol:/data/ftp
       - ingest-ftp-ssl-vol:/etc/ssl/private
