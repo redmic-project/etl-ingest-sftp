@@ -12,5 +12,4 @@ variables:
 .deploy:
   script:
     - >
-      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLIC_PORT=${PUBLIC_PORT}
-      PUBLIC_HOST=${PUBLIC_HOST}
+      deploy.sh COMPOSE_FILE=${COMPOSE_FILE} PUBLICHOST=${PUBLICHOST}
