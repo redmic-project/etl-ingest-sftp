@@ -7,11 +7,9 @@ services:
       - ingest-ftp-net
     ports:
       - target: 21
-        published: ${PUBLIC_PORT}
         protocol: tcp
         mode: ingress
       - target: 30000-30009
-        published: ${PASSIVE_PUBLIC_PORT}
         protocol: tcp
         mode: ingress
     volumes:
