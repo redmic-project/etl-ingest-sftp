@@ -6,6 +6,9 @@ include:
 stages:
   - deploy
 
+variables:
+  STACK: etl
+
 .deploy:
   script:
     - >
