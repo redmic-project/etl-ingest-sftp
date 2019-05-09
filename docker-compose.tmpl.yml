@@ -33,4 +33,5 @@ services:
 
 networks:
   ingest-ftp-net:
-    external: true
+    name: ${INGEST_FTP_NET_NAME:-ingest-ftp-net}
+    attachable: true
