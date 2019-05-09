@@ -9,9 +9,37 @@ services:
       - target: 21
         protocol: tcp
         mode: ingress
-      - target: 30000-30009
+      - target: 30000
         protocol: tcp
         mode: ingress
+      - target: 30001
+        protocol: tcp
+        mode: ingress
+      - target: 30002
+        protocol: tcp
+        mode: ingress
+      - target: 30003
+        protocol: tcp
+        mode: ingress
+      - target: 30004
+        protocol: tcp
+        mode: ingress
+      - target: 30005
+        protocol: tcp
+        mode: ingress
+      - target: 30006
+        protocol: tcp
+        mode: ingress
+      - target: 30007
+        protocol: tcp
+        mode: ingress
+      - target: 30008
+        protocol: tcp
+        mode: ingress
+      - target: 30009
+        protocol: tcp
+        mode: ingress
+
     volumes:
       - ingest-data-vol:/data/ftp
       - ingest-ftp-ssl-vol:/etc/ssl/private
